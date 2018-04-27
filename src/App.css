@@ -3,7 +3,8 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: fast-spin 5s cubic-bezier(.42,1,.38,.93), App-logo-spin infinite 5s linear;
+  animation-delay: 0s, 5s;
   height: 80px;
 }
 
@@ -24,5 +25,34 @@
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes fast-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-3600deg); }
+}
+
+.counter {
+  width: 88px;
+  position: absolute;
+  margin: 0 auto;
+  bottom: 20px;
+  left: 0px;
+  right: 0px;
+  display: none;
+}
+
+.counter .classy.with.style.so.legit {
+  margin: auto;
+  position: relative;
+  top: -36px;
+  left: -20px;
+  background-color:#EEE;
+  width: 40px;
+  height: 30px;
+  font-family: Arial;
+  font-size: 9px;
+  line-height: 10px;
+  text-align:left;
 }
