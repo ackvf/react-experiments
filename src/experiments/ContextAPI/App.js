@@ -59,33 +59,58 @@ export default class App extends React.Component {
         <button onClick={this.toggleColor}>Change Color</button>
 
         <section>
-          <ThemedBox text="Default"/>
-
-          <themeContext.Provider value={this.state.theme}>
-            <Intermediate text="Theme"/>
-          </themeContext.Provider>
-
-          <colorContext.Provider value={this.state.color}>
-            <Intermediate text="Color"/>
-          </colorContext.Provider>
-        </section>
-
-        <section>
-          <themeContext.Provider value={this.state.theme}>
+          <article>
+            <ThemedBox text="Default"/>
+          </article>
+          <c-p>
+            <themeContext.Provider value={this.state.theme}>
+              <article>
+                <Intermediate text="Theme"/>
+              </article>
+            </themeContext.Provider>
+          </c-p>
+          <c-p>
             <colorContext.Provider value={this.state.color}>
-              <Intermediate text="Both"/>
-              <AnotherIntermediate text="Super!"/>
+              <article>
+                <Intermediate text="Color"/>
+              </article>
             </colorContext.Provider>
-          </themeContext.Provider>
-
-          <Provide
-            theme={[themeContext, this.state.theme]}
-            color={[colorContext, this.state.color]}
-          >
-            <Intermediate text="Both"/>
-            <AnotherIntermediate text="Super!"/>
-          </Provide>
+          </c-p>
         </section>
+
+        <section className='double'>
+          <c-p>
+            <themeContext.Provider value={this.state.theme}>
+              <c-p>
+                <colorContext.Provider value={this.state.color}>
+                  <article>
+                    <Intermediate text="Both"/>
+                    <AnotherIntermediate text="Super!"/>
+                  </article>
+                </colorContext.Provider>
+              </c-p>
+            </themeContext.Provider>
+          </c-p>
+
+          <c-p>
+            <Provide
+              theme={[themeContext, this.state.theme]}
+              color={[colorContext, this.state.color]}
+            >
+              <article>
+                <Intermediate text="Both"/>
+                <AnotherIntermediate text="Super!"/>
+              </article>
+            </Provide>
+          </c-p>
+        </section>
+
+        <div className="legend">
+          <ul>
+            <li><span className="provider">This is a provider layer</span></li>
+            <li><span className="consumer">This is a consumer layer</span></li>
+          </ul>
+        </div>
 
       </main>
     )

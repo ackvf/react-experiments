@@ -26,3 +26,34 @@ ul li:last-of-type {
   width: 120px;
   font-size: 20px;
 }
+
+section.double article {
+  display: flex;
+  justify-content: space-between;
+  width: 260px;
+}
+
+section c-p, .provider {
+  display: block;
+  outline: 1px solid black;
+}
+
+section c-c, .consumer {
+  display: block;
+  outline: 1px solid silver;
+}
+
+section article c-c{
+  outline-offset: 4px
+}
+
+section article c-c > c-c {
+  outline-offset: 8px
+}
+
+section > c-p {
+  outline-offset: 12px
+}
+section > c-p > c-p {
+  outline-offset: 16px
+}
