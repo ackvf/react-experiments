@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
+import ContextAPI from './experiments/ContextAPI'
+
 class App extends Component {
   render() {
     return (
@@ -10,6 +12,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo"/>
           <h1 className="App-title">Welcome to React Experiments</h1>
         </header>
+        <ContextAPI/>
       </div>
     )
   }
