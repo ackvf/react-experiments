@@ -26,7 +26,7 @@
     "comma-dangle": ["warn", "always-multiline"],
     "curly": ["warn", "multi-line", "consistent"],
     "indent": ["warn", 2],
-    "max-len": ["warn", {"code": 120, "ignoreComments": true, "ignorePattern": "http|return"}],
+    "max-len": ["warn", {"code": 120, "ignoreComments": true, "ignorePattern": "http|return|svg"}],
     "no-console": "off",
     "no-undef": "off",
     // "object-curly-spacing": ["warn", "never", { "objectsInObjects": true }], // issue https://github.com/eslint/eslint/issues/9973

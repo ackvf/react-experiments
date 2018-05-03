@@ -1,4 +1,4 @@
-See [Live examples](http://react-experiments.herokuapp.com/)<br>
+See [Live examples](http://react-experiments.herokuapp.com/) _(built with development env)_<br>
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).<br>
 You can read how to perform common tasks in this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).

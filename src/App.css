@@ -56,3 +56,13 @@
   line-height: 10px;
   text-align:left;
 }
+
+.octicon {
+  fill: #c0c0c0;
+  height: 60px;
+  padding: 10px;
+}
+
+.octicon:hover {
+  fill: #4183C4;
+}
