@@ -16,8 +16,8 @@ Uses simplified `Provider` and `Consumer` wrappers that accept contexts as argum
 
 ```jsx
 <Provide
-  theme={[themeContext, this.state.theme]}
-  color={[colorContext, this.state.color]}
+  theme={[ThemeContext, this.state.theme]}
+  color={[ColorContext, this.state.color]}
 >
   <SomeIntermediate text="Super!"/>
 </Provide>
@@ -25,8 +25,8 @@ Uses simplified `Provider` and `Consumer` wrappers that accept contexts as argum
 // ... later in SomeIntermediate.jsx
 
 <Consume
-  theme={themeContext}
-  color={colorContext}
+  theme={ThemeContext}
+  color={ColorContext}
 >
   {({color, theme}) => (
     <Box
@@ -40,4 +40,4 @@ Uses simplified `Provider` and `Consumer` wrappers that accept contexts as argum
 </Consume>
 ```
 
-It is implemented using `Array.reduce` and under the hood it wraps your FaaC (Function as a Child) with all provided contexts. See code [here](https://github.com/ackvf/react-experiments/blob/c3a308720ae01a396f5bb5e0dc539aa27fb03f9d/src/experiments/ContextAPI/superContext.js).
+It is implemented using `Array.reduce` and under the hood it wraps your FaaC (Function as a Child) with all provided contexts. See code [here](https://github.com/ackvf/react-experiments/blob/master/src/experiments/ContextAPI/SuperContext.jsx).

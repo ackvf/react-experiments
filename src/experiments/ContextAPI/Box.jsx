@@ -1,10 +1,7 @@
 import React from 'react'
 
-const Box = ({text, style}) => (
+export default ({text, style}) => (
   <div className="box" style={style}>
     {text||'Box'}
   </div>
 )
-
-export default Box
-

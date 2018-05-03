@@ -1,16 +1,18 @@
 import React from 'react'
 
-import themeContext, {themes} from './themeContext'
-import colorContext, {colors} from './colorContext'
+import ThemeContext, {themes} from './ThemeContext'
+import ColorContext, {colors} from './ColorContext'
+import { Provide } from './SuperContext'
 import ThemedBox from './ThemedBox'
 import SuperBox from './SuperBox'
 
 import './style.css'
-import { Provide } from './superContext'
+
 
 // An intermediate component that uses the ThemedBox
 const Intermediate = props => <ThemedBox {...props}/>
 const AnotherIntermediate = props => <SuperBox {...props}/>
+
 
 export default class App extends React.Component {
   state = {
@@ -49,6 +51,7 @@ export default class App extends React.Component {
     }))
   }
 
+
   render() {
     return (
       <main className="contextAPI">
@@ -63,39 +66,39 @@ export default class App extends React.Component {
             <ThemedBox text="Default"/>
           </article>
           <c-p>
-            <themeContext.Provider value={this.state.theme}>
+            <ThemeContext.Provider value={this.state.theme}>
               <article>
                 <Intermediate text="Theme"/>
               </article>
-            </themeContext.Provider>
+            </ThemeContext.Provider>
           </c-p>
           <c-p>
-            <colorContext.Provider value={this.state.color}>
+            <ColorContext.Provider value={this.state.color}>
               <article>
                 <Intermediate text="Color"/>
               </article>
-            </colorContext.Provider>
+            </ColorContext.Provider>
           </c-p>
         </section>
 
         <section className='double'>
           <c-p>
-            <themeContext.Provider value={this.state.theme}>
+            <ThemeContext.Provider value={this.state.theme}>
               <c-p>
-                <colorContext.Provider value={this.state.color}>
+                <ColorContext.Provider value={this.state.color}>
                   <article>
                     <Intermediate text="Both"/>
                     <AnotherIntermediate text="Super!"/>
                   </article>
-                </colorContext.Provider>
+                </ColorContext.Provider>
               </c-p>
-            </themeContext.Provider>
+            </ThemeContext.Provider>
           </c-p>
 
           <c-p>
             <Provide
-              theme={[themeContext, this.state.theme]}
-              color={[colorContext, this.state.color]}
+              theme={[ThemeContext, this.state.theme]}
+              color={[ColorContext, this.state.color]}
             >
               <article>
                 <Intermediate text="Both"/>
