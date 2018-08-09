@@ -43,7 +43,7 @@ section c-c, .consumer {
   outline: 1px solid silver;
 }
 
-section article c-c{
+section article c-c {
   outline-offset: 4px
 }
 

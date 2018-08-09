@@ -9,7 +9,8 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #222 !important;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAgMAAAANjH3HAAAACVBMVEUaGhohISElJSUh9lebAAABwElEQVR4AY3Vua3gOBgGQQXZhgKYgwHJYAA0Ksu9CAh6hxbTbvFzfx6rNEGlHY6z5KvMw4s43mN2Z5fqYLzKyrfyXhXKnKBdD9n58UWW3Vlb3mOCmWoHHZbdV5lv8t7Ver6ldsfqumVAdbblxxcZVcd7QWq2Y6VsadS4ZTzFDbFa5XivqlxVUFG1Jd6k66u8x0RIOw0cXAiNW2z58bJ5r1LTQtVVuy1x2jK+yLTlxy3v5RogszEXSB0ZF4iYWLbMMUBGPDbvpRQUVUV9kvGU6ynrIe9FOqssJcQ4oqurCjV6ytmqco4SwvGeNCoJaphwSHoK13cyuuU9ZaQI0lB1qB8zT3GL2XjKueU9pR+gH0OlqvGUzHWLQ81O0Dg95L3Uj9qxKx0pr3LdYrnlvQKlUEnV/8v4Xt6bThZROwaO5QfTUyY4GCBWu8Wf/nO4ULtj/li3mE9Z47zlx/WU94Iq7RD5XuZ6ynjIGn9yr1VhFaq2NH9s4bP4Rt5j2NFO5MBXGVsmsD5v3gslYORsd8R1i1rrIUoLKLXlvVhgKH7ApToyhk21TJhbLDvdN151vEetJtKdOtYo4SmnOvhGpjpe+xuj3X723ghdygAAAABJRU5ErkJggg==) !important;
   height: 150px;
   padding: 20px;
   color: white;
@@ -17,6 +18,11 @@
 
 .App-title {
   font-size: 1.5em;
+}
+
+.App-title-link {
+  text-decoration: none;
+  color: white;
 }
 
 .App-intro {
@@ -65,4 +71,41 @@
 
 .octicon:hover {
   fill: #4183C4;
+}
+
+.octoicon-link:hover::after {
+  animation: shine 1s 0s;
+}
+
+
+.octoicon-link {
+  display: inline-block;
+  position: relative;
+  clip-path: circle(30px at 40px 40px);
+}
+
+.octoicon-link:after {
+  content: "";
+  position: absolute;
+  right: 0%;
+  width: 25%;
+  height: 100%;
+  opacity: 0;
+  transform: rotate(30deg);
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient(
+    to right,
+    #4183C421 0%,
+    #4183C421 77%,
+    #4183C480 92%,
+    #4183C421 100%
+  );
+  animation: shine 1s 3s;
+}
+
+@keyframes shine {
+  to {
+    opacity: 1;
+    right: 100%;
+  }
 }
