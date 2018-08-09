@@ -6,6 +6,7 @@ import './App.css'
 
 import Landing from './pages/Landing'
 import ContextAPI from './experiments/ContextAPI'
+import StateFlow from './experiments/StateFlow'
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
           <Switch>
 
             <Route exact path='/context-api' component={ContextAPI}/>
+            <Route exact path='/state-flow'  component={StateFlow}/>
             <Route component={Landing} />
 
           </Switch>
