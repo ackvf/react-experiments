@@ -1,0 +1,15 @@
+.default {
+  border: 1px solid lightgray;
+}
+
+.red {
+  border-color: red;
+}
+
+.blue {
+  border-color: blue;
+}
+
+.transition {
+  transition: border-color 400ms ease-out;
+}

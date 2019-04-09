@@ -50,6 +50,8 @@ export default class StateFlow extends React.Component {
     return true
   }
 
+  valueGetter = state => state.c
+
   render() {
     console.debug('render', 'this.state', r(this.state))
     return (
@@ -57,7 +59,7 @@ export default class StateFlow extends React.Component {
         <button onClick={this.updateState}>updateState</button>
         <br/>
         <StatePrinter state={this.state}/>
-        <StackPrinter stack={stateStack}/>
+        <StackPrinter stack={stateStack} getValue={this.valueGetter}/>
       </article>
     )
   }

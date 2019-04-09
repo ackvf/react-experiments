@@ -1,7 +1,7 @@
 import React from 'react'
 
 import StatePrinter from './StatePrinter'
-import StackPrinter from './StackPrinter';
+import StackPrinter from './StackPrinter'
 
 
 let firstState
@@ -55,6 +55,8 @@ export default class NestedStateFlow extends React.Component {
     return true
   }
 
+  nestedValueGetter = state => state.deeply.nested.c
+
   render() {
     console.debug('render', 'this.state', r(this.state))
     return (
@@ -68,13 +70,17 @@ export default class NestedStateFlow extends React.Component {
         <PureIntermediateClass deeply={this.state.deeply}/>
         <PureIntermediateClass2 deeply={this.state.deeply}/>
 
-        <StackPrinter stack={stateStack}/>
+        <StackPrinter stack={stateStack} getValue={this.nestedValueGetter} />
       </article>
     )
   }
 }
 
 /* --------------------------------------------- */
+
+/*
+ * Both Intermediate and Child rerender EVERY TIME Parent renders
+ */
 
 const Intermediate = props => {
   console.debug('%cIntermediate rendered', 'color: white; background-color: green')
@@ -88,6 +94,9 @@ const Child = props => {
 
 /* --------------------------------------------- */
 
+/*
+ * Both IntermediateClass and ChildClass rerender EVERY TIME Parent renders
+ */
 class IntermediateClass extends React.Component {
   render() {
     console.debug('%cIntermediateClass rendered', 'color: white; background-color: olive')
@@ -104,6 +113,10 @@ class ChildClass extends React.Component {
 
 /* --------------------------------------------- */
 
+/*
+ * Nothing renders here!
+ * PureComponents shallowly compare the props, but `nested` doesn't change.
+ */
 class PureIntermediateClass extends React.PureComponent {
   render() {
     console.debug('%cPureIntermediateClass rendered', 'color: white; background-color: teal')
@@ -120,6 +133,12 @@ class PureChildClass extends React.PureComponent {
 
 /* --------------------------------------------- */
 
+/*
+ * Nothing renders here!
+ * EXCEPT: We store a `forceUpdate` handler that we explicitly call in the parent@updateState(),
+ * so even though the PureIntermediateClass2 doesn't render similarly to PureIntermediateClass,
+ * the PureChildClassWithHack is rerendered when needed.
+ */
 class PureIntermediateClass2 extends React.PureComponent {
   render() {
     console.debug('%cPureIntermediateClass rendered', 'color: white; background-color: black')
