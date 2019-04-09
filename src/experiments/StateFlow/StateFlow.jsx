@@ -56,7 +56,7 @@ export default class StateFlow extends React.Component {
     console.debug('render', 'this.state', r(this.state))
     return (
       <article>
-        <button onClick={this.updateState}>updateState</button>
+        <button onClick={this.updateState}>Mutate state</button>
         <br/>
         <StatePrinter state={this.state}/>
         <StackPrinter stack={stateStack} getValue={this.valueGetter}/>

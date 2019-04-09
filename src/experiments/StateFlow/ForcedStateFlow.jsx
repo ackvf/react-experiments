@@ -6,7 +6,7 @@ import StackPrinter from './StackPrinter'
 
 let firstState
 let stateStack = []
-window['stateStackNested'] = stateStack
+window['stateStackForced'] = stateStack
 
 const r = obj => `#${stateStack.indexOf(obj)}`
 
@@ -20,15 +20,15 @@ export default class NestedStateFlow extends React.Component {
     },
   }
 
-  updateState = () => this.setState(state => {
+  forceState = () => {
     console.debug('---------------------------')
-    state.deeply.nested.c++
-    console.debug('update', 'state', r(state))
-    return state
-  }, () => {
-    console.debug('updated', 'this.state', r(this.state))
-    if (updateNestedChild) updateNestedChild()
-  })
+    this.state.deeply.nested.c++
+    console.debug('update', 'state', r(this.state))
+    this.forceUpdate(() => {
+      console.debug('updated', 'this.state', r(this.state))
+      if (updateNestedChild) updateNestedChild()
+    })
+  }
 
   constructor(props) {
     super(props)
@@ -37,7 +37,7 @@ export default class NestedStateFlow extends React.Component {
     stateStack.push(firstState)
     console.debug('firstState', r(firstState))
 
-    window['updateStateNested'] = this.updateState
+    window['updateStateForced'] = this.forceState
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -61,7 +61,7 @@ export default class NestedStateFlow extends React.Component {
     console.debug('render', 'this.state', r(this.state))
     return (
       <article>
-        <button onClick={this.updateState}>Mutate nested state</button>
+        <button onClick={this.forceState}>ForceUpdate with mutated state</button>
         <br/>
         <StatePrinter state={this.state}/>
 
