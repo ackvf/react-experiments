@@ -5,21 +5,20 @@ export const Provide = ({children, ...providers}) => {
   return pKeys.reduceRight((nested, key) => {
     const [{Provider}, value] = providers[key]
     return <Provider value={value}>{nested}</Provider>
-  },
-  children)
+  }, children)
 }
 
 export const Consume = ({children, ...consumers}) => {
-  const pKeys = Object.keys(consumers)
-  let lastKey, values = {} // collect values from consumers
-  return pKeys.reduceRight((nested, key) => {
-    const Consumer = consumers[key]
-    return prop => {
-      if (lastKey) values = {...values, [lastKey]: prop}
-      lastKey = key
+  const cKeys = Object.keys(consumers)
+  let prevKey, values = {} // collect values from consumers
+  return cKeys.reduceRight((nested, key) => {
+    const {Consumer} = consumers[key]
+    return prevValue => {
+      if (prevKey) values = {...values, [prevKey]: prevValue}
+      prevKey = key
       return <Consumer>{nested}</Consumer>
     }
-  }, prop => children({...values, [lastKey]:prop}))
+  }, prevValue => children({...values, [prevKey]:prevValue}))
   () // after every consumer is wrapped, unwrap (call) one dummy level
 }
 

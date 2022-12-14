@@ -33,6 +33,12 @@ section.double article {
   width: 260px;
 }
 
+/*
+This is a "custom element" syntax. I use these elements to visualize the use of Providers and Consumers.
+<c-c/> - stands for Consumer
+<c-p/> - stands for Provider
+*/
+
 section c-p, .provider {
   display: block;
   outline: 1px solid black;

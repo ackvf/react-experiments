@@ -1,4 +1,4 @@
-See [Live examples](http://react-experiments.herokuapp.com/) _(built with development env)_<br>
+See [Live examples](http://react-experiments-ackvf.vercel.app/) _(built with development env)_<br>
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).<br>
 You can read how to perform common tasks in this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
@@ -7,12 +7,12 @@ Install with `npm install`, run with `npm start`. It will run on http://localhos
 
 ## React Experiments
 
-- [Context API - Provider & Consumer Wrappers](#context-api---provider--consumer-wrappers) ([demo](http://react-experiments.herokuapp.com/context-api))
-- [setState flow & direct state mutation](#setstate-flow--direct-state-mutation) ([demo](http://react-experiments.herokuapp.com/state-flow))
+- [Context API - Provider & Consumer Wrappers](#context-api---provider--consumer-wrappers) ([demo](http://react-experiments-ackvf.vercel.app/context-api))
+- [setState flow & direct state mutation](#setstate-flow--direct-state-mutation) ([demo](http://react-experiments-ackvf.vercel.app/state-flow))
 
 ## Context API - Provider & Consumer Wrappers
 
-Uses simplified `Provider` and `Consumer` wrappers that accept contexts as arguments. ([demo](http://react-experiments.herokuapp.com/context-api))
+Uses simplified `Provider` and `Consumer` wrappers that accept contexts as arguments. ([demo](http://react-experiments-ackvf.vercel.app/context-api))
 
 
 ```jsx
@@ -46,7 +46,7 @@ It is implemented using `Array.reduce` and under the hood it wraps your FaaC (Fu
 
 ## setState flow & direct state mutation
 
-This [demo](http://react-experiments.herokuapp.com/state-flow) demonstrates the direct state manipulation and its effects on the component itself and its (nested) children.
+This [demo](http://react-experiments-ackvf.vercel.app/state-flow) demonstrates the direct state manipulation and its effects on the component itself and its (nested) children.
 
 See this [SO answer](https://stackoverflow.com/a/50149659/985454) for details.
 

@@ -10,8 +10,17 @@ import './style.css'
 
 
 // An intermediate component that uses the ThemedBox
-const Intermediate = props => <ThemedBox {...props}/>
-const AnotherIntermediate = props => <SuperBox {...props}/>
+// const Intermediate = props => <ThemedBox {...props}/>
+// const AnotherIntermediate = props => <SuperBox {...props}/>
+
+class Intermediate extends React.PureComponent {
+  render = () => <ThemedBox {...this.props} />
+}
+
+class AnotherIntermediate extends React.PureComponent {
+  render = () => <SuperBox {...this.props} />
+}
+
 
 
 export default class App extends React.Component {
@@ -60,22 +69,21 @@ export default class App extends React.Component {
         <button onClick={this.toggleBoth}>Change Both</button>
         <button onClick={this.toggleTheme}>Change Theme</button>
         <button onClick={this.toggleColor}>Change Color</button>
-
         <section>
           <article>
-            <ThemedBox text="Default"/>
+            <ThemedBox text="Default" />
           </article>
           <c-p>
             <ThemeContext.Provider value={this.state.theme}>
               <article>
-                <Intermediate text="Theme"/>
+                <Intermediate text="Theme" />
               </article>
             </ThemeContext.Provider>
           </c-p>
           <c-p>
             <ColorContext.Provider value={this.state.color}>
               <article>
-                <Intermediate text="Color"/>
+                <Intermediate text="Color" />
               </article>
             </ColorContext.Provider>
           </c-p>

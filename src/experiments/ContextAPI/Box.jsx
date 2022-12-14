@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default ({text, style}) => (
+export default function Box({text, style}) { return (
   <div className="box" style={style}>
     {text||'Box'}
   </div>
-)
+)}

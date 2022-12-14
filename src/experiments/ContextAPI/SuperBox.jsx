@@ -4,7 +4,7 @@ import ColorContext from './ColorContext'
 import Consume from './SuperContext'
 import Box from './Box'
 
-export default props => (
+export default function SuperBox(props) { return (
   <c-c>
     <Consume
       theme={ThemeContext}
@@ -21,4 +21,4 @@ export default props => (
       )}
     </Consume>
   </c-c>
-)
+)}
